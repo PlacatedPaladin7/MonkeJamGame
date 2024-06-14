@@ -1,1 +1,0 @@
-Synopsis: Mouse's Plushie addiction is getting out of hand, Poor connor has fallen on hard times trying to keep up. He's known about the town as the "Fancy Man" Going door to door selling tea to anyone who will answer.
