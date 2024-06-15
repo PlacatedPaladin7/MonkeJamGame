@@ -10,18 +10,27 @@ public class Gamemaster : MonoBehaviour
 	int chosenpoint;
 	public float numberOfPoints;
 	public float finishedPoints = 0;
-
+	bool readyForPoints;
+	public int maxPoints = 4;
 	
 
 	[SerializeField] public GameObject[] dropPoints;
+	void Awake ()
+	{
+		readyForPoints = true;
+	}
 
 	void Update ()
     {
         timeLimit -= Time.deltaTime;
 
-		if(Input.GetKeyDown (KeyCode.L))
+		if(readyForPoints && numberOfPoints < maxPoints)
 		{
-		 NextDelivery();
+			NextDelivery ();
+		}
+		else if(numberOfPoints >= maxPoints)
+		{
+			readyForPoints = false;
 		}
 		
 	
@@ -33,11 +42,11 @@ public class Gamemaster : MonoBehaviour
     {
 		DropPointScript dropScript;
 
-	  chosenpoint = (UnityEngine.Random.Range (0,3));
+	  chosenpoint = (UnityEngine.Random.Range (0,maxPoints));
 
 		dropScript = dropPoints[chosenpoint].gameObject.GetComponent<DropPointScript>();
 
-		if(numberOfPoints < 2)
+		if(numberOfPoints < 5)
 		{
 
 			switch(dropScript.isTaken)
@@ -58,10 +67,17 @@ public class Gamemaster : MonoBehaviour
 
 	public void ProgressCheck ()
 	{
-		if(finishedPoints >= numberOfPoints )
+		if(finishedPoints >= numberOfPoints)
 		{
-			numberOfPoints = 0; finishedPoints = 0;	
-			
+			numberOfPoints = 0;
+			finishedPoints = 0;
+			StartCoroutine (NewDropPoints ());
 		}
 	}
+
+	IEnumerator NewDropPoints ()
+	{
+		yield return new WaitForSeconds (3);
+		readyForPoints = true;
+ 	}
 }

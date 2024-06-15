@@ -25,8 +25,8 @@ public class TeaScript : MonoBehaviour
 			Debug.Log ("You got a Point");
 			gm.playerScore += 10;
 			other.gameObject.GetComponent<DropPointScript> ().isTaken = false;
-			gm.ProgressCheck();
 			gm.finishedPoints++;
+			gm.ProgressCheck ();
 			Destroy (gameObject);
 		}
 
