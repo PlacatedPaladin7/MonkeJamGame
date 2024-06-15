@@ -5,25 +5,31 @@ using UnityEngine;
 public class TeaScript : MonoBehaviour
 {
 	Rigidbody rb;
-
+	public Gamemaster gm;
+  
+	
 	void Awake ()
 	{
+
+		gm = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<Gamemaster>();
 		rb = gameObject.GetComponent<Rigidbody> ();
 		rb.AddForce (transform.forward * 700);
 		rb.AddForce (transform.up * 200);
 	}
 
-	void OnTriggerEnter(Collider other)
+	void OnTriggerEnter (Collider other)
 	{
+
 		if(other.gameObject.tag == "teaDropOff")
 		{
-			//Add destroy and add to player score + next delivery
+			Debug.Log ("You got a Point");
+			gm.playerScore += 10;
+			other.gameObject.GetComponent<DropPointScript> ().isTaken = false;
+			gm.ProgressCheck();
+			gm.finishedPoints++;
 			Destroy (gameObject);
 		}
 
-	
-
-		
 	}
 
 	void Update ()

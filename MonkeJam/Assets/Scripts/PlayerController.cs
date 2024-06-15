@@ -11,9 +11,10 @@ public class PlayerController : MonoBehaviour
 	public float basespeed = 3;
 	public float rotateSpeed = 1.0F;
 	bool moving = false;
-   public bool hasTea = false;
+	public float numberOfTea;
 	public GameObject firingPoint;
 	public GameObject teaBox;
+	
 
 
 	void Update ()
@@ -40,10 +41,10 @@ public class PlayerController : MonoBehaviour
 			moving = false;
 		}
 
-		if(Input.GetKeyDown (KeyCode.Mouse0) && hasTea)
+		if(Input.GetKeyDown (KeyCode.Mouse0) && numberOfTea > 0)
 		{
 			Instantiate (teaBox,firingPoint.transform.position,firingPoint.transform.rotation);
-			hasTea = false;
+			numberOfTea--;
 		}
 
 		if(!moving && speed > basespeed)
@@ -60,10 +61,9 @@ public class PlayerController : MonoBehaviour
 	void OnTriggerEnter(Collider other)
 	{
 
-		if(!hasTea && other.gameObject.tag == "Tea")
+		if(other.gameObject.tag == "Tea")
 		{
-			hasTea = true;
-			
+			numberOfTea++;
 		}
 	}
 }
