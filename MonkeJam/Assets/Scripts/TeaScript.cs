@@ -23,7 +23,11 @@ public class TeaScript : MonoBehaviour
 		if(other.gameObject.tag == "teaDropOff")
 		{
 			Debug.Log ("You got a Point");
-			gm.playerScore += 10;
+			gm.playerScore += 5 * (60 / gm.mouseMeter);
+			if(gm.mouseRaids)
+			{
+				gm.playerScore += 3 * (60 / gm.mouseMeter);
+			}
 			other.gameObject.GetComponent<DropPointScript> ().isTaken = false;
 			gm.finishedPoints++;
 			gm.ProgressCheck ();

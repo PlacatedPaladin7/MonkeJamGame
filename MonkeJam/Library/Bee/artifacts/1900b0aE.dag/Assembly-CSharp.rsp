@@ -355,6 +355,7 @@
 "Assets/Scripts/DropPointScript.cs"
 "Assets/Scripts/Gamemaster.cs"
 "Assets/Scripts/PlayerController.cs"
+"Assets/Scripts/PlushieScript.cs"
 "Assets/Scripts/TeaScript.cs"
 -langversion:9.0
 

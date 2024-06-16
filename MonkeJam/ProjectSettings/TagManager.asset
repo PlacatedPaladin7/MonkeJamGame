@@ -8,6 +8,7 @@ TagManager:
   - ground
   - teaDropOff
   - GameMaster
+  - Plushie
   layers:
   - Default
   - TransparentFX

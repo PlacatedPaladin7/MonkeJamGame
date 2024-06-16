@@ -5,6 +5,7 @@ using System;
 
 public class Gamemaster : MonoBehaviour
 {
+	PlayerController controller;
     public float timeLimit = 500;
     public float playerScore = 0;
 	int chosenpoint;
@@ -12,14 +13,18 @@ public class Gamemaster : MonoBehaviour
 	public float finishedPoints = 0;
 	bool readyForPoints;
 	public int maxPoints = 4;
-	
+	public float mouseMeter;
+	public bool mouseRaids;
+	public float raidCoutdown = 7;
 
 	[SerializeField] public GameObject[] dropPoints;
 	void Awake ()
 	{
+
+		controller = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ();
 		readyForPoints = true;
 	}
-
+	
 	void Update ()
     {
         timeLimit -= Time.deltaTime;
@@ -32,8 +37,24 @@ public class Gamemaster : MonoBehaviour
 		{
 			readyForPoints = false;
 		}
-		
+
+		mouseMeter += (2 * (Time.deltaTime / controller.speed));
 	
+		if(mouseMeter >= 60)
+		{
+			timeLimit -= Time.deltaTime * 2;
+		}
+
+		if(mouseRaids)
+		{
+			raidCoutdown -= Time.deltaTime;
+		}
+
+		if(raidCoutdown <= 0)
+		{
+          mouseRaids = false;
+			raidCoutdown = 7;
+		}
 		
 	}
 
@@ -80,4 +101,10 @@ public class Gamemaster : MonoBehaviour
 		yield return new WaitForSeconds (3);
 		readyForPoints = true;
  	}
+
+
+	public void MouseGetsPlushie ()
+	{
+	 mouseRaids = true;
+	}
 }
