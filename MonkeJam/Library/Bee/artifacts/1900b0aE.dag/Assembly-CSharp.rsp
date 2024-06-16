@@ -352,10 +352,13 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 -analyzer:"P:/Unity/2022.3.2f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"P:/Unity/2022.3.2f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
+"Assets/ScoreGrabber.cs"
 "Assets/Scripts/DropPointScript.cs"
 "Assets/Scripts/Gamemaster.cs"
+"Assets/Scripts/MenuMaster.cs"
 "Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/PlushieScript.cs"
+"Assets/Scripts/ScoreSaverScript.cs"
 "Assets/Scripts/TeaScript.cs"
 -langversion:9.0
 

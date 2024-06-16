@@ -24,9 +24,5 @@ public class PlushieScript:MonoBehaviour
 		gameObject.GetComponent<Renderer> ().enabled = true;
 
 	}
-
-	
-	
-
-
-}
+		
+	}

@@ -13,7 +13,7 @@ public class TeaScript : MonoBehaviour
 
 		gm = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<Gamemaster>();
 		rb = gameObject.GetComponent<Rigidbody> ();
-		rb.AddForce (transform.forward * 700);
+		rb.AddForce (transform.forward * 1000);
 		rb.AddForce (transform.up * 200);
 	}
 
@@ -22,7 +22,6 @@ public class TeaScript : MonoBehaviour
 
 		if(other.gameObject.tag == "teaDropOff")
 		{
-			Debug.Log ("You got a Point");
 			gm.playerScore += 5 * (60 / gm.mouseMeter);
 			if(gm.mouseRaids)
 			{

@@ -9,6 +9,7 @@ TagManager:
   - teaDropOff
   - GameMaster
   - Plushie
+  - MenuMaster
   layers:
   - Default
   - TransparentFX
@@ -45,4 +46,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: background
+    uniqueID: 3933537755
     locked: 0

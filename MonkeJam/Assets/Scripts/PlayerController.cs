@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
 	{
 		#region CharacterController
 		
-		rotateSpeed = 0.25f / speed;
+		rotateSpeed = 0.5f / (speed/2);
 
 		transform.Rotate (0,Input.GetAxis ("Horizontal") * rotateSpeed,0);
 
@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
 
 		if(Input.GetKey(KeyCode.W) && speed < MaxSpeed)
 		{
-			speed += 0.7f * Time.deltaTime;
+			speed += 1 * Time.deltaTime;
 			moving = true;	
 		}
 
